@@ -3,72 +3,97 @@ package com.atguigu.bookstore.web;
 import java.util.List;
 
 public class Page<T> {
-	// ��ǰ�ڼ�ҳ
-	private int pageNo;
-	// ��ǰҳ��List
-	private List<T> list;
-	// ÿҳ��ʾ��������¼
-	private int pagesize;
-	//���ж�������¼
-	private int totalItemNumber;
-	//��������Ҫ��pageNo��ʼ��
-	public Page(int pageNo) {
+	    //当前第几页
+		private int pageNo;
 		
-		super();
-		this.pageNo = pageNo;
-	}
-	public int getPageNo() {
-		return pageNo;
-	}
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
-	public List<T> getList() {
-		return list;
-	}
-	public void setList(List<T> list) {
-		this.list = list;
-	}
-	public int getPagesize() {
-		return pagesize;
-	}
-	public void setPagesize(int pagesize) {
-		this.pagesize = pagesize;
-	}
-	public int getTotalItemNumber() {
-		return totalItemNumber;
-	}
-	public void setTotalItemNumber(int totalItemNumber) {
-		this.totalItemNumber = totalItemNumber;
-	}
-	public int getPrevPage(){
-		if(isHasPrev()){
-			return getPageNo() - 1;
+		//当前页的 List
+		private List<T> list;
+		
+		//每页显示多少条记录
+		private int pageSize = 3;
+		
+		//共有多少条记录
+		private int totalItemNumber;
+
+		public int getTotalItemNumber() {
+			return totalItemNumber;
+		}
+
+		//构造器中需要对 pageNo 进行初始化
+		public Page(int pageNo) {
+			super();
+			this.pageNo = pageNo;
 		}
 		
-		return getPageNo();
-	}
-	
-	public int getNextPage(){
-		if(isHasNext()){
-			return getPageNo() + 1;
+		//需要校验一下
+		public int getPageNo() {
+			if(pageNo < 0)
+				pageNo = 1;
+			
+			if(pageNo > getTotalPageNumber()){
+				pageNo = getTotalPageNumber();
+			}
+			
+			return pageNo;
 		}
 		
-		return getPageNo();
-	}
-	public boolean isHasNext(){
-		if(getPageNo() < getTotalItemNumber()){
-			return true;
+		public int getPageSize() {
+			return pageSize;
 		}
 		
-		return false;
-	}
-	
-	public boolean isHasPrev(){
-		if(getPageNo() > 1){
-			return true;
+		public void setList(List<T> list) {
+			this.list = list;
 		}
 		
-		return false;
-	}
+		public List<T> getList() {
+			return list;
+		}
+		
+		//获取总页数
+		public int getTotalPageNumber(){
+			
+			int totalPageNumber = (int)totalItemNumber / pageSize;
+			
+			if(totalItemNumber % pageSize != 0){
+				totalPageNumber++;
+			}
+			
+			return totalPageNumber;
+		}
+		
+		public void setTotalItemNumber(int totalItemNumber) {
+			this.totalItemNumber = totalItemNumber;
+		}
+		
+		public boolean isHasNext(){
+			if(getPageNo() < getTotalPageNumber()){
+				return true;
+			}
+			
+			return false;
+		}
+		
+		public boolean isHasPrev(){
+			if(getPageNo() > 1){
+				return true;
+			}
+			
+			return false;
+		}
+		
+		public int getPrevPage(){
+			if(isHasPrev()){
+				return getPageNo() - 1;
+			}
+			
+			return getPageNo();
+		}
+		
+		public int getNextPage(){
+			if(isHasNext()){
+				return getPageNo() + 1;
+			}
+			
+			return getPageNo();
+		}
 }

@@ -28,7 +28,7 @@ public class BookDAOImplTest {
 		CriteriaBook cBook=new CriteriaBook(0,Integer.MAX_VALUE, 3);
 		Page<Book> page=bookDAO.getPage(cBook);
 		System.out.println("PageNo:"+page.getPageNo()+"");
-		System.out.println("totalPageNumber:"+page.getTotalItemNumber());
+		System.out.println("totalPageNumber:"+page.getTotalPageNumber());
 		System.out.println("list:"+page.getList());
 		System.out.println("prevpage:"+page.getPrevPage());
 		System.out.println("nextPage"+page.getNextPage());

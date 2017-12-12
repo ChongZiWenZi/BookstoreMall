@@ -28,7 +28,7 @@ public class BaseDAOTest {
 	@Test
 	public void testUpdate() {
 		String sql="UPDATE mybooks SET Title=? WHERE id =?";
-		bookDAOImpl.update(sql, "安卓",1);
+		bookDAOImpl.update(sql, "安卓Android",1);
 	}
 
 	@Test

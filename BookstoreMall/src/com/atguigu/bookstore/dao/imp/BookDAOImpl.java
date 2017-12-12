@@ -36,8 +36,8 @@ public class BookDAOImpl extends BaseDAO<Book> implements BookDAO{
 	public List<Book> getPageList(CriteriaBook cb, int pageSize) {
 		String sql="SELECT id,author,title,price,publishingDate,"
 				+ "salesAmount,storeNumber,remark "
-				+ "FROM mybooks WHERE price>=? AND price <=?"
-				+"LIMIT ?,?";
+				+ "FROM mybooks WHERE price>=? AND price <=? "
+				+"LIMIT ?, ?";
 		return queryForList(sql, cb.getMinPrice(),cb.getMaxPrice(),(cb.getPageNo()-1)*pageSize,pageSize);
 	}
 
