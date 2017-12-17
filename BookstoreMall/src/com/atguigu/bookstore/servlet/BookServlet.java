@@ -40,6 +40,27 @@ public class BookServlet extends HttpServlet {
 		} 
 	
 	}
+	
+	public void getBook(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		 String idString=request.getParameter("id");
+		 int id=-1;
+		 Book book=null;
+		 try {
+			id=Integer.parseInt(idString);
+		} catch (Exception e) {
+	 
+		}
+		 if(id>0){
+			 book=bookService.getBook(id);
+		 }
+		 if(book==null){
+			 response.sendRedirect(request.getContextPath()+"/error-1.jsp");
+		    return;
+		 }
+		 request.setAttribute("book", book);
+		 request.getRequestDispatcher("/WEB-INF/pages/book.jsp").forward(request, response);
+	}
 
 	protected void getBooks(HttpServletRequest request, HttpServletResponse response) {
 		String pageNoStr = request.getParameter("pageNo");
