@@ -1,7 +1,7 @@
 package com.atguigu.bookstore.domain;
 
 /**
- * ·â×°ÁË¹ºÎï³µÖĞµÄÉÌÆ·, °üº¬¶ÔÉÌÆ·µÄÒıÓÃÒÔ¼°¹ºÎï³µÖĞ¸ÃÉÌÆ·µÄÊıÁ¿
+ * ï¿½ï¿½×°ï¿½Ë¹ï¿½ï¿½ï³µï¿½Ğµï¿½ï¿½ï¿½Æ·, ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï³µï¿½Ğ¸ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  */
 public class ShoppingCartItem {
@@ -27,7 +27,7 @@ public class ShoppingCartItem {
 	}
 	
 	/**
-	 * ·µ»Ø¸ÃÉÌÆ·ÔÚ¹ºÎï³µÖĞµÄÇ®Êı
+	 * è¿”å›è¯¥å•†å“åœ¨è´­ç‰©è½¦ä¸­çš„é’±æ•°
 	 * @return
 	 */
 	public float getItemMoney(){
@@ -35,11 +35,10 @@ public class ShoppingCartItem {
 	}
 	
 	/**
-	 * Ê¹ÉÌÆ·ÊıÁ¿ + 1
+	 * ä½¿å•†å“æ•°é‡ + 1
 	 */
 	public void increment(){
 		quantity++;
 	}
-	
 	
 }

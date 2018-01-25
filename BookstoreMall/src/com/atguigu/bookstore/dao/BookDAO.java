@@ -11,28 +11,28 @@ import com.atguigu.bookstore.web.Page;
 public interface BookDAO {
 
 	/**
-	 * ¸ù¾İ id »ñÈ¡Ö¸¶¨ Book ¶ÔÏó
+	 * æ ¹æ® id è·å–æŒ‡å®š Book å¯¹è±¡
 	 * @param id
 	 * @return
 	 */
 	public abstract Book getBook(int id);
 
 	/**
-	 * ¸ù¾İ´«ÈëµÄ CriteriaBook ¶ÔÏó·µ»Ø¶ÔÓ¦µÄ Page ¶ÔÏó
+	 * æ ¹æ®ä¼ å…¥çš„ CriteriaBook å¯¹è±¡è¿”å›å¯¹åº”çš„ Page å¯¹è±¡
 	 * @param cb
 	 * @return
 	 */
 	public abstract Page<Book> getPage(CriteriaBook cb);
 
 	/**
-	 * ¸ù¾İ´«ÈëµÄ CriteriaBook ¶ÔÏó·µ»ØÆä¶ÔÓ¦µÄ¼ÇÂ¼Êı
+	 * æ ¹æ®ä¼ å…¥çš„ CriteriaBook å¯¹è±¡è¿”å›å…¶å¯¹åº”çš„è®°å½•æ•°
 	 * @param cb
 	 * @return
 	 */
 	public abstract long getTotalBookNumber(CriteriaBook cb);
 
 	/**
-	 * ¸ù¾İ´«ÈëµÄ CriteriaBook ºÍ pageSize ·µ»Øµ±Ç°Ò³¶ÔÓ¦µÄ List 
+	 * æ ¹æ®ä¼ å…¥çš„ CriteriaBook å’Œ pageSize è¿”å›å½“å‰é¡µå¯¹åº”çš„ List 
 	 * @param cb
 	 * @param pageNo
 	 * @param pageSize
@@ -41,15 +41,15 @@ public interface BookDAO {
 	public abstract List<Book> getPageList(CriteriaBook cb,int pageSize);
 
 	/**
-	 * ·µ»ØÖ¸¶¨ id µÄ book µÄ storeNumber ×Ö¶ÎµÄÖµ
+	 * è¿”å›æŒ‡å®š id çš„ book çš„ storeNumber å­—æ®µçš„å€¼
 	 * @param id
 	 * @return
 	 */
 	public abstract int getStoreNumber(Integer id);
 
 	/**
-	 * ¸ù¾İ´«ÈëµÄ ShoppingCartItem µÄ¼¯ºÏ, 
-	 * ÅúÁ¿¸üĞÂ books Êı¾İ±íµÄ storenumber ºÍ salesnumber ×Ö¶ÎµÄÖµ
+	 * æ ¹æ®ä¼ å…¥çš„ ShoppingCartItem çš„é›†åˆ, 
+	 * æ‰¹é‡æ›´æ–° books æ•°æ®è¡¨çš„ storenumber å’Œ salesnumber å­—æ®µçš„å€¼
 	 * @param items
 	 */
 	public abstract void batchUpdateStoreNumberAndSalesAmount(

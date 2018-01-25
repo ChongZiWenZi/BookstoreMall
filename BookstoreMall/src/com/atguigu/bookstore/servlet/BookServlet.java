@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.atguigu.bookstore.domain.Book;
+import com.atguigu.bookstore.domain.ShoppingCart;
 import com.atguigu.bookstore.service.BookService;
+import com.atguigu.bookstore.web.BookStoreWebUtils;
 import com.atguigu.bookstore.web.CriteriaBook;
 import com.atguigu.bookstore.web.Page;
 
@@ -28,6 +30,7 @@ public class BookServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String methodNameString=request.getParameter("method");
 		Method method;
 		try {
@@ -38,7 +41,6 @@ public class BookServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-	
 	}
 	
 	public void getBook(HttpServletRequest request, HttpServletResponse response)
@@ -71,7 +73,6 @@ public class BookServlet extends HttpServlet {
 		int maxPrice = Integer.MAX_VALUE;
 		try {
 			pageNo = Integer.parseInt(pageNoStr);
-
 		} catch (NumberFormatException e) {
 			// TODO: handle exception
 		}
@@ -86,7 +87,7 @@ public class BookServlet extends HttpServlet {
 		} catch (NumberFormatException e) {
 			// TODO: handle exception
 		}
-		System.out.println("CriteriaBook"+minPrice+","+ maxPrice+","+ pageNo);
+		
 		CriteriaBook criteriaBook = new CriteriaBook(minPrice, maxPrice, pageNo);
 		Page<Book> page = bookService.getpage(criteriaBook);
 		request.setAttribute("bookpage", page);
@@ -102,4 +103,28 @@ public class BookServlet extends HttpServlet {
 		 
 	}
 
+	public void addToCart(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		//1. 获取商品的 id
+		String idString=request.getParameter("id");
+		System.out.println("addToCart"+request.getParameter("title"));
+		int id = -1;
+		boolean flag = false;
+		try {
+			id = Integer.parseInt(idString);
+		} catch (Exception e) {}
+		if(id > 0){
+			//2. 获取购物车对象
+			ShoppingCart sc = BookStoreWebUtils.getShoppingCart(request);
+			
+			//3. 调用 BookService 的 addToCart() 方法把商品放到购物车中
+			flag = bookService.addToCart(id, sc);
+		}
+		if(flag){
+			//4. 直接调用 getBooks() 方法. 
+			getBooks(request, response);
+			return;
+		}
+		
+		response.sendRedirect(request.getContextPath() + "/error-1.jsp");
+	}
 }
