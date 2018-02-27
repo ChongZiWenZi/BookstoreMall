@@ -27,4 +27,12 @@ public class BookService {
 		
 		return false;
 	}
+    
+    public void removeItemFromShoppingCart(ShoppingCart sc,int id){
+    	sc.removeItem(id);
+    }
+    
+    public void clearShoppingCart(ShoppingCart sc){
+    	sc.clear();
+    }
 }

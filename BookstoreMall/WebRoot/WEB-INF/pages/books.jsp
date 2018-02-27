@@ -1,12 +1,21 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%request.setCharacterEncoding ("UTF-8");%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+	 
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="http://qh-20171125ijky:8080/BookstoreMall/jquery-1.7.2.min.js"></script>
+
+ <!-- <script type="text/javascript" src="http://qh-20171125ijky:8080/BookstoreMall/jquery-1.7.2.min.js"></script>  -->
+ 
+ <script type="text/javascript" src="script/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("a").click(function() {
@@ -62,7 +71,7 @@
 		</c:if>
 		
 	    <c:if test="${!empty sessionScope.ShoppingCart.books }">
-			您的购物车中有 ${sessionScope.ShoppingCart.bookNumber } 本书, <a href="bookServlet?method=forwardPage&page=cart&pageNo=${bookpage.pageNo }">查看购物车</a>
+			您的购物车中有 ${sessionScope.ShoppingCart.bookNumber } 本书, <a href="bookServlets?method=forwardPage&page=cart&pageNo=${bookpage.pageNo }">查看购物车</a>
 		</c:if>
 	   
 	  

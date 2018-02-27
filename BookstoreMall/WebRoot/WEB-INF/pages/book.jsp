@@ -34,9 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<script type="text/javascript"
+  <script type="text/javascript"
 	src="http://qh-20171125ijky:8080/BookstoreMall/jquery-1.7.2.min.js"></script>
-
+ 
+  <%--  <script type="text/javascript" src="<%=basePath%>script/jquery-1.7.2.min.js"></script>  --%>
   </head>
   
   <body>
