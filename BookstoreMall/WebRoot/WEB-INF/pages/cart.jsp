@@ -55,8 +55,9 @@
 			<td colspan="4">总金额：${ sessionScope.ShoppingCart.totalMoney }</td>
 		</tr>
 		<tr>
-			<td colspan="4"><a href="">继续购物</a> &nbsp;&nbsp; <a href="">清空购物车</a>
-				&nbsp;&nbsp; <a href="">结账</a> <br> &nbsp;&nbsp;
+			<td colspan="4"><a href="bookServlets?method=getBooks&pageNo=${param.pageNo }">继续购物</a> &nbsp;&nbsp;
+			 <a href="bookServlets?method=clear">清空购物车</a>
+				&nbsp;&nbsp; <a href="bookServlets?method=forwardPage&page=cash">结账</a> <br> &nbsp;&nbsp;
 		</tr>
 		<br>
 

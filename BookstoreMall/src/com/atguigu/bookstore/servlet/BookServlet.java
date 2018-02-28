@@ -108,6 +108,12 @@ public class BookServlet extends HttpServlet {
 
 	}
 
+	protected void clear(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ShoppingCart sc = BookStoreWebUtils.getShoppingCart(request);
+		bookService.clearShoppingCart(sc);
+		request.getRequestDispatcher("/WEB-INF/pages/emptycart.jsp").forward(request, response);
+	}
+	
 	public void remove(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String idString = request.getParameter("id");
