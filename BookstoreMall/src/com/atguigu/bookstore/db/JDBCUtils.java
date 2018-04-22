@@ -12,28 +12,28 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
  * 
- * JDBC µÄ¹¤¾ßÀà
+ * JDBC çš„å·¥å…·ç±»
  *
  */
 public class JDBCUtils {
 
-	private static DataSource dataSource = null;
+private static DataSource dataSource = null;
 	
 	static{
 		dataSource = new ComboPooledDataSource("javawebapp");
 	}
 	
-	//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+	//è·å–æ•°æ®åº“è¿æ¥
 	public static Connection getConnection(){  
 		try {
 			return dataSource.getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Êı¾İ¿âÁ¬½Ó´íÎó!");
+			throw new DBException("æ•°æ®åº“è¿æ¥é”™è¯¯!");
 		}
 	}
  
-	//¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	//å…³é—­æ•°æ®åº“è¿æ¥
 	public static void release(Connection connection) {
 		try {
 			if(connection != null){
@@ -41,11 +41,11 @@ public class JDBCUtils {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Êı¾İ¿âÁ¬½Ó´íÎó!");
+			throw new DBException("æ•°æ®åº“è¿æ¥é”™è¯¯!");
 		}
 	}
 	
-	//¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	//å…³é—­æ•°æ®åº“è¿æ¥
 	public static void release(ResultSet rs, Statement statement) {
 		try {
 			if(rs != null){
@@ -53,7 +53,7 @@ public class JDBCUtils {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Êı¾İ¿âÁ¬½Ó´íÎó!");
+			throw new DBException("æ•°æ®åº“è¿æ¥é”™è¯¯!");
 		}
 		
 		try {
@@ -62,7 +62,7 @@ public class JDBCUtils {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Êı¾İ¿âÁ¬½Ó´íÎó!");
+			throw new DBException("æ•°æ®åº“è¿æ¥é”™è¯¯!");
 		}
 	}
 	

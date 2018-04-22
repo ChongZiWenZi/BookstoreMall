@@ -6,7 +6,7 @@ import com.atguigu.bookstore.domain.User;
 public interface UserDAO {
 
 	/**
-	 * 根据用户名获取 User 对象
+	 * 鏍规嵁鐢ㄦ埛鍚嶆煡璇㈢敤鎴风殑淇℃伅
 	 * @param username
 	 * @return
 	 */

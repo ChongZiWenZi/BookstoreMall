@@ -15,7 +15,7 @@
 
  <!-- <script type="text/javascript" src="http://qh-20171125ijky:8080/BookstoreMall/jquery-1.7.2.min.js"></script>  -->
  
- <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+ <script type="text/javascript" src="script/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("a").click(function() {

@@ -7,14 +7,14 @@ import com.atguigu.bookstore.domain.Account;
 public interface AccountDAO {
 
 	/**
-	 * ¸ù¾İ accountId »ñÈ¡¶ÔÓ¦µÄ Account ¶ÔÏó
+	 * æ ¹æ®accountIdè·å¾—ç›¸åº”çš„å¯¹è±¡
 	 * @param accountId
 	 * @return
 	 */
 	public abstract Account get(Integer accountId);
 
 	/**
-	 * ¸ù¾İ´«ÈëµÄ accountId, amount ¸üĞÂÖ¸¶¨ÕË»§µÄÓà¶î: ¿Û³ı amount Ö¸¶¨µÄÇ®Êı
+	 * ï¿½ï¿½İ´ï¿½ï¿½ï¿½ï¿½ accountId, amount ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Û³ï¿½ amount Ö¸ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½
 	 * @param accountId
 	 * @param amount
 	 */

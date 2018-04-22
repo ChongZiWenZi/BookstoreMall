@@ -2,6 +2,8 @@ package com.atguigu.bookstore.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,7 @@ import com.atguigu.bookstore.service.BookService;
 import com.atguigu.bookstore.web.BookStoreWebUtils;
 import com.atguigu.bookstore.web.CriteriaBook;
 import com.atguigu.bookstore.web.Page;
+import com.google.gson.Gson;
 
 public class BookServlet extends HttpServlet {
 
@@ -163,5 +166,31 @@ public class BookServlet extends HttpServlet {
 		String page = request.getParameter("page");
 		request.getRequestDispatcher("/WEB-INF/pages/" + page + ".jsp")
 				.forward(request, response);
+	}
+	
+	public void updateItemQuantity(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String idString=request.getParameter("id");
+		String quantityString=request.getParameter("quantity");	
+		ShoppingCart sCart=BookStoreWebUtils.getShoppingCart(request);
+		int id=-1;
+		int quantity=-1;
+		try {
+			id=Integer.parseInt(idString);
+			quantity=Integer.parseInt(quantityString);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		if(id>0&&quantity>0){
+			bookService.updateItemQuantity(sCart, id, quantity);
+		}
+		
+		
+		Map<String, Object> resultMap=new HashMap<String, Object>();
+		resultMap.put("bookNumber", sCart.getBookNumber());
+		resultMap.put("totalMoney", sCart.getTotalMoney());
+		Gson gson = new Gson();
+		String jsonString=gson.toJson(resultMap);
+		response.setContentType("text/javascript");
+		response.getWriter().print(jsonString);
 	}
 }

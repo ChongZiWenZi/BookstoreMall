@@ -32,7 +32,6 @@ public class BookDAOImplTest {
 		System.out.println("list:"+page.getList());
 		System.out.println("prevpage:"+page.getPrevPage());
 		System.out.println("nextPage"+page.getNextPage());
-
 	}
 
 	@Test

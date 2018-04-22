@@ -8,8 +8,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * ·´ÉäµÄ Utils º¯Êı¼¯ºÏ
- * Ìá¹©·ÃÎÊË½ÓĞ±äÁ¿, »ñÈ¡·ºĞÍÀàĞÍ Class, ÌáÈ¡¼¯ºÏÖĞÔªËØÊôĞÔµÈ Utils º¯Êı
+ * åå°„çš„ Utils å‡½æ•°é›†åˆ
+ * æä¾›è®¿é—®ç§æœ‰å˜é‡, è·å–æ³›å‹ç±»å‹ Class, æå–é›†åˆä¸­å…ƒç´ å±æ€§ç­‰ Utils å‡½æ•°
  * @author Administrator
  *
  */
@@ -17,8 +17,8 @@ public class ReflectionUtils {
 
 	
 	/**
-	 * Í¨¹ı·´Éä, »ñµÃ¶¨Òå Class Ê±ÉùÃ÷µÄ¸¸ÀàµÄ·ºĞÍ²ÎÊıµÄÀàĞÍ
-	 * Èç: public EmployeeDao extends BaseDao<Employee, String>
+	 * é€šè¿‡åå°„, è·å¾—å®šä¹‰ Class æ—¶å£°æ˜çš„çˆ¶ç±»çš„æ³›å‹å‚æ•°çš„ç±»å‹
+	 * å¦‚: public EmployeeDao extends BaseDao<Employee, String>
 	 * @param clazz
 	 * @param index
 	 * @return
@@ -45,8 +45,8 @@ public class ReflectionUtils {
 	}
 	
 	/**
-	 * Í¨¹ı·´Éä, »ñµÃ Class ¶¨ÒåÖĞÉùÃ÷µÄ¸¸ÀàµÄ·ºĞÍ²ÎÊıÀàĞÍ
-	 * Èç: public EmployeeDao extends BaseDao<Employee, String>
+	 * é€šè¿‡åå°„, è·å¾— Class å®šä¹‰ä¸­å£°æ˜çš„çˆ¶ç±»çš„æ³›å‹å‚æ•°ç±»å‹
+	 * å¦‚: public EmployeeDao extends BaseDao<Employee, String>
 	 * @param <T>
 	 * @param clazz
 	 * @return
@@ -57,7 +57,7 @@ public class ReflectionUtils {
 	}
 	
 	/**
-	 * Ñ­»·ÏòÉÏ×ªĞÍ, »ñÈ¡¶ÔÏóµÄ DeclaredMethod
+	 * å¾ªç¯å‘ä¸Šè½¬å‹, è·å–å¯¹è±¡çš„ DeclaredMethod
 	 * @param object
 	 * @param methodName
 	 * @param parameterTypes
@@ -70,7 +70,7 @@ public class ReflectionUtils {
 				//superClass.getMethod(methodName, parameterTypes);
 				return superClass.getDeclaredMethod(methodName, parameterTypes);
 			} catch (NoSuchMethodException e) {
-				//Method ²»ÔÚµ±Ç°Àà¶¨Òå, ¼ÌĞøÏòÉÏ×ªĞÍ
+				//Method ä¸åœ¨å½“å‰ç±»å®šä¹‰, ç»§ç»­å‘ä¸Šè½¬å‹
 			}
 			//..
 		}
@@ -79,7 +79,7 @@ public class ReflectionUtils {
 	}
 	
 	/**
-	 * Ê¹ filed ±äÎª¿É·ÃÎÊ
+	 * ä½¿ filed å˜ä¸ºå¯è®¿é—®
 	 * @param field
 	 */
 	public static void makeAccessible(Field field){
@@ -89,7 +89,7 @@ public class ReflectionUtils {
 	}
 	
 	/**
-	 * Ñ­»·ÏòÉÏ×ªĞÍ, »ñÈ¡¶ÔÏóµÄ DeclaredField
+	 * å¾ªç¯å‘ä¸Šè½¬å‹, è·å–å¯¹è±¡çš„ DeclaredField
 	 * @param object
 	 * @param filedName
 	 * @return
@@ -100,14 +100,14 @@ public class ReflectionUtils {
 			try {
 				return superClass.getDeclaredField(filedName);
 			} catch (NoSuchFieldException e) {
-				//Field ²»ÔÚµ±Ç°Àà¶¨Òå, ¼ÌĞøÏòÉÏ×ªĞÍ
+				//Field ä¸åœ¨å½“å‰ç±»å®šä¹‰, ç»§ç»­å‘ä¸Šè½¬å‹
 			}
 		}
 		return null;
 	}
 	
 	/**
-	 * Ö±½Óµ÷ÓÃ¶ÔÏó·½·¨, ¶øºöÂÔĞŞÊÎ·û(private, protected)
+	 * ç›´æ¥è°ƒç”¨å¯¹è±¡æ–¹æ³•, è€Œå¿½ç•¥ä¿®é¥°ç¬¦(private, protected)
 	 * @param object
 	 * @param methodName
 	 * @param parameterTypes
@@ -130,14 +130,14 @@ public class ReflectionUtils {
 		try {
 			return method.invoke(object, parameters);
 		} catch(IllegalAccessException e) {
-			System.out.println("²»¿ÉÄÜÅ×³öµÄÒì³£");
+			System.out.println("ä¸å¯èƒ½æŠ›å‡ºçš„å¼‚å¸¸");
 		} 
 		
 		return null;
 	}
 	
 	/**
-	 * Ö±½ÓÉèÖÃ¶ÔÏóÊôĞÔÖµ, ºöÂÔ private/protected ĞŞÊÎ·û, Ò²²»¾­¹ı setter
+	 * ç›´æ¥è®¾ç½®å¯¹è±¡å±æ€§å€¼, å¿½ç•¥ private/protected ä¿®é¥°ç¬¦, ä¹Ÿä¸ç»è¿‡ setter
 	 * @param object
 	 * @param fieldName
 	 * @param value
@@ -153,12 +153,12 @@ public class ReflectionUtils {
 		try {
 			field.set(object, value);
 		} catch (IllegalAccessException e) {
-			System.out.println("²»¿ÉÄÜÅ×³öµÄÒì³£");
+			System.out.println("ä¸å¯èƒ½æŠ›å‡ºçš„å¼‚å¸¸");
 		}
 	}
 	
 	/**
-	 * Ö±½Ó¶ÁÈ¡¶ÔÏóµÄÊôĞÔÖµ, ºöÂÔ private/protected ĞŞÊÎ·û, Ò²²»¾­¹ı getter
+	 * ç›´æ¥è¯»å–å¯¹è±¡çš„å±æ€§å€¼, å¿½ç•¥ private/protected ä¿®é¥°ç¬¦, ä¹Ÿä¸ç»è¿‡ getter
 	 * @param object
 	 * @param fieldName
 	 * @return
@@ -176,7 +176,7 @@ public class ReflectionUtils {
 		try {
 			result = field.get(object);
 		} catch (IllegalAccessException e) {
-			System.out.println("²»¿ÉÄÜÅ×³öµÄÒì³£");
+			System.out.println("ä¸å¯èƒ½æŠ›å‡ºçš„å¼‚å¸¸");
 		}
 		
 		return result;

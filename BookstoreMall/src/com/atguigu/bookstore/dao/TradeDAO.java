@@ -8,13 +8,13 @@ import com.atguigu.bookstore.domain.Trade;
 public interface TradeDAO {
 
 	/**
-	 * ÏòÊı¾İ±íÖĞ²åÈë Trade ¶ÔÏó
+	 * å‘æ•°æ®è¡¨ä¸­æ’å…¥ Trade å¯¹è±¡
 	 * @param trade
 	 */
 	public abstract void insert(Trade trade);
 
 	/**
-	 * ¸ù¾İ userId »ñÈ¡ºÍÆä¹ØÁªµÄ Trade µÄ¼¯ºÏ
+	 * æ ¹æ® userId è·å–å’Œå…¶å…³è”çš„ Trade çš„é›†åˆ
 	 * @param userId
 	 * @return
 	 */

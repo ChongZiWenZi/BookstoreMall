@@ -94,4 +94,15 @@ public class ShoppingCart {
 			src.increment();
 		}
 	}
+	
+	/**
+	 * 修改指定购物项的数量
+	 */
+	public void updateItemQuantity(Integer id, int quantity){
+		ShoppingCartItem sci =books.get(id);
+		if(sci != null){
+			sci.setQuantity(quantity);
+		}
+	}
+	
 }
