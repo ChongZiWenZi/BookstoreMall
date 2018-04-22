@@ -9,13 +9,13 @@ import com.atguigu.bookstore.domain.TradeItem;
 public interface TradeItemDAO {
 
 	/**
-	 * ÅúÁ¿±£´æ TradeItem ¶ÔÏó
+	 * æ‰¹é‡ä¿å­˜ TradeItem å¯¹è±¡
 	 * @param items
 	 */
 	public abstract void batchSave(Collection<TradeItem> items);
 
 	/**
-	 * ¸ù¾İ tradeId »ñÈ¡ºÍÆä¹ØÁªµÄ TradeItem µÄ¼¯ºÏ
+	 * æ ¹æ® tradeId è·å–å’Œå…¶å…³è”çš„ TradeItem çš„é›†åˆ
 	 * @param tradeId
 	 * @return
 	 */
