@@ -30,7 +30,7 @@
 			<font color="red">${requestScope.errors }</font>
 		</c:if>
 		
-		<form action="bookServlet?method=cash" method="post">
+		<form action="bookServlets?method=cash" method="post">
 		
 			<table cellpadding="10"> 
 				<tr>
